@@ -1,0 +1,606 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BOBOS</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         TOP NAVIGATION
+    ========================== -->
+
+    <header class="navbar">
+
+        <div class="logo" onclick="openPage('home')">
+            BOBOS
+        </div>
+
+        <nav>
+
+            <button onclick="openPage('home')">
+                🏠 Home
+            </button>
+
+            <button onclick="openPage('bible')">
+                📖 Bible
+            </button>
+
+            <button onclick="openPage('progress')">
+                ⭐ Progress
+            </button>
+
+            <button onclick="openPage('shop')">
+                🛒 Shop
+            </button>
+
+            <button onclick="openPage('ai')">
+                🤖 AI
+            </button>
+
+            <button onclick="openPage('settings')">
+                ⚙️ Settings
+            </button>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main>
+
+
+        <!-- HOME -->
+
+        <section id="home" class="page active">
+
+            <div class="hero">
+
+                <div class="badge">
+                    WELCOME TO BOBOS
+                </div>
+
+                <h1>
+                    Everything you need.
+                    <span>All in one place.</span>
+                </h1>
+
+                <p>
+                    Welcome to BOBOS — your personal hub for
+                    Bible study, progress, shopping, AI, and more.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <button
+                        class="primary"
+                        onclick="openPage('bible')">
+
+                        📖 Start Bible Study
+
+                    </button>
+
+                    <button
+                        class="secondary"
+                        onclick="openPage('ai')">
+
+                        🤖 Open BOBOS AI
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="cards">
+
+                <div class="card">
+
+                    <div class="card-icon">📖</div>
+
+                    <h2>Bible Study</h2>
+
+                    <p>
+                        Read Scripture, answer questions,
+                        and learn something new.
+                    </p>
+
+                    <button
+                        class="card-button"
+                        onclick="openPage('bible')">
+
+                        Open
+
+                    </button>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-icon">⭐</div>
+
+                    <h2>Progress</h2>
+
+                    <p>
+                        Track your XP, level, and completed studies.
+                    </p>
+
+                    <button
+                        class="card-button"
+                        onclick="openPage('progress')">
+
+                        View
+
+                    </button>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-icon">🛒</div>
+
+                    <h2>Shop</h2>
+
+                    <p>
+                        Browse products and featured items.
+                    </p>
+
+                    <button
+                        class="card-button"
+                        onclick="openPage('shop')">
+
+                        Shop
+
+                    </button>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-icon">🤖</div>
+
+                    <h2>BOBOS AI</h2>
+
+                    <p>
+                        Ask questions and interact with BOBOS AI.
+                    </p>
+
+                    <button
+                        class="card-button"
+                        onclick="openPage('ai')">
+
+                        Open AI
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             BIBLE STUDY
+        ========================== -->
+
+        <section id="bible" class="page">
+
+            <div class="page-header">
+
+                <div class="badge">
+                    BIBLE STUDY #3
+                </div>
+
+                <h1>
+                    Walk in Wisdom 📖
+                </h1>
+
+                <p>
+                    Read the verse, answer the questions,
+                    and earn XP.
+                </p>
+
+            </div>
+
+
+            <div class="study-card">
+
+                <h2>Today's Scripture</h2>
+
+                <div class="verse">
+
+                    <p>
+                        "Trust in the Lord with all your heart
+                        and lean not on your own understanding."
+                    </p>
+
+                    <strong>
+                        Proverbs 3:5
+                    </strong>
+
+                </div>
+
+                <p class="lesson">
+
+                    This verse teaches us to trust God and
+                    allow Him to guide our lives instead of
+                    relying only on our own understanding.
+
+                </p>
+
+                <button
+                    class="primary"
+                    onclick="startStudy()">
+
+                    Start Questions →
+
+                </button>
+
+            </div>
+
+
+            <div
+                id="questions"
+                class="study-card hidden">
+
+                <h2 id="questionText">
+                    Question
+                </h2>
+
+                <div id="answers"></div>
+
+                <p id="feedback"></p>
+
+                <button
+                    id="nextQuestion"
+                    class="primary hidden"
+                    onclick="nextQuestion()">
+
+                    Next Question →
+
+                </button>
+
+            </div>
+
+
+            <div
+                id="studyComplete"
+                class="study-card hidden">
+
+                <div class="complete">
+                    🎉
+                </div>
+
+                <h2>
+                    Study Complete!
+                </h2>
+
+                <p>
+                    Great job completing Bible Study #3.
+                </p>
+
+                <h3 id="studyScore">
+                    Score: 0/3
+                </h3>
+
+                <button
+                    class="primary"
+                    onclick="openPage('progress')">
+
+                    View Progress →
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             PROGRESS
+        ========================== -->
+
+        <section id="progress" class="page">
+
+            <div class="page-header">
+
+                <div class="badge">
+                    YOUR PROGRESS
+                </div>
+
+                <h1>
+                    Level Up ⭐
+                </h1>
+
+                <p>
+                    Keep learning and earning XP.
+                </p>
+
+            </div>
+
+
+            <div class="stats">
+
+                <div class="stat">
+
+                    <span>LEVEL</span>
+
+                    <strong id="level">
+                        1
+                    </strong>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <span>XP</span>
+
+                    <strong id="xp">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <span>STUDIES</span>
+
+                    <strong id="studies">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="study-card">
+
+                <h2>
+                    Level Progress
+                </h2>
+
+                <div class="progress-bar">
+
+                    <div id="progressFill"></div>
+
+                </div>
+
+                <p id="progressText">
+                    0 / 100 XP
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             SHOP
+        ========================== -->
+
+        <section id="shop" class="page">
+
+            <div class="page-header">
+
+                <div class="badge">
+                    BOBOS SHOP
+                </div>
+
+                <h1>
+                    Shop 🛒
+                </h1>
+
+                <p>
+                    Browse products and featured items.
+                </p>
+
+            </div>
+
+
+            <div class="cards">
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        🛍️
+                    </div>
+
+                    <h2>
+                        Products
+                    </h2>
+
+                    <p>
+                        Browse products available through BOBOS.
+                    </p>
+
+                    <button
+                        class="card-button"
+                        onclick="showMessage('Products are coming soon!')">
+
+                        View Products
+
+                    </button>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        ⭐
+                    </div>
+
+                    <h2>
+                        Featured
+                    </h2>
+
+                    <p>
+                        Check out featured items.
+                    </p>
+
+                    <button
+                        class="card-button"
+                        onclick="showMessage('Featured items are coming soon!')">
+
+                        Explore
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             AI
+        ========================== -->
+
+        <section id="ai" class="page">
+
+            <div class="page-header">
+
+                <div class="badge">
+                    BOBOS AI
+                </div>
+
+                <h1>
+                    BOBOS <span>AI</span> 🤖
+                </h1>
+
+                <p>
+                    Your AI assistant inside BOBOS.
+                </p>
+
+            </div>
+
+
+            <div class="ai-box">
+
+                <input
+                    id="aiInput"
+                    type="text"
+                    placeholder="Ask BOBOS something..."
+                >
+
+                <button
+                    class="primary"
+                    onclick="askAI()">
+
+                    Ask AI
+
+                </button>
+
+                <div id="aiResponse">
+                    Ask me something!
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             SETTINGS
+        ========================== -->
+
+        <section id="settings" class="page">
+
+            <div class="page-header">
+
+                <div class="badge">
+                    SETTINGS
+                </div>
+
+                <h1>
+                    Settings ⚙️
+                </h1>
+
+                <p>
+                    Customize your BOBOS experience.
+                </p>
+
+            </div>
+
+
+            <div class="cards">
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        🌙
+                    </div>
+
+                    <h2>
+                        Dark Mode
+                    </h2>
+
+                    <p>
+                        BOBOS is currently using dark mode.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        🔔
+                    </div>
+
+                    <h2>
+                        Notifications
+                    </h2>
+
+                    <p>
+                        Notification settings.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <footer>
+
+        <p>
+            © 2026 BOBOS
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+```
